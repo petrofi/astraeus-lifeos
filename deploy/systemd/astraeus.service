@@ -1,0 +1,31 @@
+[Unit]
+Description=ASTRAEUS - Autonomous Life Orchestrator
+Documentation=https://github.com/username/astraeus
+After=network-online.target docker.service
+Requires=docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=astraeus
+Group=astraeus
+WorkingDirectory=/opt/astraeus
+ExecStartPre=/usr/bin/docker compose pull
+ExecStart=/usr/bin/docker compose up
+ExecStop=/usr/bin/docker compose down
+ExecReload=/usr/bin/docker compose restart
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/astraeus/astraeus.log
+StandardError=append:/var/log/astraeus/astraeus-error.log
+
+# Security
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/astraeus
+
+[Install]
+WantedBy=multi-user.target
