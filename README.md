@@ -200,3 +200,6 @@ Darklove
 AI Systems and Automation
 
 
+⚠️ Testing Phase – Proje local ortamda test ediliyor. Şu anda çalışır durumdadır ancak gerçek zamanlı testler devam ediyor.
+
+
