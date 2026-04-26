@@ -133,7 +133,7 @@ Requirements:
 
 Quick Start with Docker:
 
-git clone https://github.com/petrofi/astraeus.git
+git clone https://github.com/petrofi/astraeus-lifeos
 cd astraeus
 cp .env.example .env
 docker compose up -d
