@@ -133,7 +133,7 @@ Requirements:
 
 Quick Start with Docker:
 
-git clone https://github.com/username/astraeus.git
+git clone https://github.com/petrofi/astraeus.git
 cd astraeus
 cp .env.example .env
 docker compose up -d
