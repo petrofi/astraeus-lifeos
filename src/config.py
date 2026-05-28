@@ -29,11 +29,11 @@ class Settings(BaseSettings):
     # Telegram Configuration
     # -----------------------------
     telegram_bot_token: str = Field(
-        ...,
+        default="",
         description="Telegram Bot API token from @BotFather"
     )
     telegram_authorized_user_id: int = Field(
-        ...,
+        default=0,
         description="Telegram user ID authorized to use the bot"
     )
     

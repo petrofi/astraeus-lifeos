@@ -125,7 +125,7 @@ class TimeCalculator:
         
         logger.debug(
             "Departure calculated",
-            event=event_time.isoformat(),
+            event_time=event_time.isoformat(),
             departure=departure.isoformat(),
             total_minutes=int(total.total_seconds() / 60)
         )

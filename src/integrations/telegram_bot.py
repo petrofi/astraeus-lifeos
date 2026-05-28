@@ -54,6 +54,10 @@ class TelegramBot:
     
     async def initialize(self) -> None:
         """Initialize bot and LLM client."""
+        if not self.token or not self.authorized_user:
+            raise RuntimeError(
+                "TELEGRAM_BOT_TOKEN and TELEGRAM_AUTHORIZED_USER_ID must be set before running the bot."
+            )
         self.llm_client = get_llm_client()
         logger.info("LLM client ready")
     
@@ -467,7 +471,8 @@ T_kalkış = T_etkinlik - (T_ulaşım + T_yürüme + T_hazırlık + T_tampon)
     
     async def run(self) -> None:
         """Run the bot."""
-        await self.initialize()
+        if self.llm_client is None:
+            await self.initialize()
         app = self.build_application()
         
         logger.info("Starting Telegram bot...")

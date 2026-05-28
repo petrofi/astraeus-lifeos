@@ -1,8 +1,11 @@
 [tool.pytest.ini_options]
 minversion = "8.0"
-addopts = "-ra -q"
+addopts = "-ra -q -m 'not integration'"
 testpaths = ["tests"]
 asyncio_mode = "auto"
+markers = [
+    "integration: tests that require network or external services",
+]
 
 [tool.ruff]
 target-version = "py312"
